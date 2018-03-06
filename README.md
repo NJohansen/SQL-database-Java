@@ -7,7 +7,7 @@ on your own projects.
 
 Clone this repository to a local directory.
 ```sh
-git clone https://github.com/sdu-software/netbeans-template
+git clone https://github.com/NJohansen/SQL-database-Java
 ```
 Open the cloned repository in your NetBeans IDE and everything should be
 working out of the box.
