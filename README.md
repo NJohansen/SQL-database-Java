@@ -1,4 +1,4 @@
-# NetBeans Template
+# SQL database project
 
 This repo is a boilerplate NetBeans project, you can fork this to get started
 on your own projects.
