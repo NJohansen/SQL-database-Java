@@ -1,12 +1,6 @@
---Every query needed to construct the entire database
---complete with dummy data
+--Every query neeed to fill database with dummy data
 
-CREATE TABLE participants ( 
-  people_email VARCHAR(255), 
-  tournaments_name VARCHAR(255),
 
-  CONSTRAINT participant_primary PRIMARY KEY(people_email, tournaments_name)
-)
 
 INSERT INTO participants VALUES 
   ('team1', 'tournament1'),
@@ -35,11 +29,7 @@ INSERT INTO participants VALUES
   ('team5', 'tournament4'),
   ('team5', 'tournament5')
 
-CREATE TABLE people(
-  name VARCHAR(255),
-  email VARCHAR(255) PRIMARY KEY, 
-  nickname VARCHAR(255) 
-)
+
 
 INSERT INTO people VALUES 
   ('player01', 'player01@player.com', 'p01'),
@@ -75,13 +65,6 @@ INSERT INTO people VALUES
   ('coach04', 'coach04@coach.com', 'c04'),
   ('coach05', 'coach05@coach.com', 'c05')
 
-CREATE TABLE team_member( 
-  people_email VARCHAR(255), 
-  team_name VARCHAR(255),
-  type VARCHAR(255),  
-
-  CONSTRAINT player_primary PRIMARY KEY(people_email, team_name)
-)
 
 INSERT INTO team_member VALUES 
   ('coach01@coach.com', 'team1', 'coach'),
@@ -120,10 +103,7 @@ INSERT INTO team_member VALUES
 
 
 
-CREATE TABLE teams ( 
-  name VARCHAR(255) PRIMARY KEY,
-  country CHAR(255)
-) 
+
 
 INSERT INTO teams VALUES 
   ('team1', 'Denmark'),
@@ -132,11 +112,7 @@ INSERT INTO teams VALUES
   ('team4', 'Uzbekistan'),
   ('team5', 'Germany') 
 
-CREATE TABLE tournaments ( 
-  name VARCHAR(255) PRIMARY KEY, 
-  prize INT, 
-  date DATE
-) 
+
 
 INSERT INTO tournaments VALUES 
   ('tournament1', 500, now()), 
@@ -146,12 +122,7 @@ INSERT INTO tournaments VALUES
   ('tournament5', 10000, '2018-02-28')
 
  
-CREATE TABLE winner ( 
-  team_name VARCHAR(255), 
-  tournaments_name VARCHAR(255),
 
-  CONSTRAINT winner_primary PRIMARY KEY(team_name, tournaments_name)
-)
 
 INSERT INTO winner VALUES 
   ('team1', 'tournament5'), 
