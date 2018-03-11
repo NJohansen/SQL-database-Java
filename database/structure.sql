@@ -13,7 +13,7 @@ DROP TABLE tournament_participant;
 
 CREATE TABLE tournament_participant (
   team_id INT,
-  tournaments_id INT,
+  tournament_id INT,
   winner BOOLEAN,
 
   PRIMARY KEY(team_id, tournaments_id)
