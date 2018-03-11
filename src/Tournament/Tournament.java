@@ -5,10 +5,8 @@
  */
 package Tournament;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import database.Database;
+import java.util.Scanner;
 
 /**
  *
@@ -16,32 +14,30 @@ import java.sql.Statement;
  */
 public class Tournament {
 
-  public void getTeamList() {
-    try {
-      Class.forName("org.postgresql.Driver");
-    } catch (java.lang.ClassNotFoundException e) {
-      System.out.println(e);
-    }
+  private final Database db;
 
-    String url = "jdbc:postgresql://baasu.db.elephantsql.com:5432/ncpicdys";
-    String username = "ncpicdys";
-    String password = "pNWAGejzcJxCRoluHxYc2BvDoeGchZxG";
+  public Tournament(Database db) {
+    this.db = db;
+  }
 
-    try {
-      Connection db = DriverManager.getConnection(url, username, password);
+  public void getPeopleWhoWon() {
+    db.query("select people.name from team_member"
+            + "JOIN people ON team_member.people_id = people.id"
+            + "JOIN tournament_participant ON team_member.team_id = tournament_participant.team_id"
+            + "WHERE tournament_participant.winner > 0", rs -> {
+              System.out.print("Name: " + rs.getString(1) + " ");
+              System.out.print("Price: " + rs.getString(2) + "BTC" + " ");
+              System.out.println("Date: " + rs.getString(3) + " ");
+            });
+  }
 
-      Statement st = db.createStatement();
-      ResultSet rs = st.executeQuery("UPDATE teams SET name='Hold 3' WHERE name = 'Niclas3'");
-      while (rs.next()) {
+  public void getParticipatingTeams() {
+    Scanner sc = new Scanner(System.in);
+    int inputNumber = sc.nextInt();
 
-        System.out.print("Country: " + rs.getString(2) + " ");
-        System.out.println("Coach: " + rs.getString(4) + " ");
-      }
-      rs.close();
-      st.close();
-
-    } catch (Exception e) {
-      System.out.println(e);
-    }
+    db.query("select teams.name, (select count(*) FROM tournament_participant GROUP BY tournament_id) FROM tournament_participant "
+            + "WHERE tournament_", rs -> {
+              System.out.println("Team name: " + rs.getString(1));
+            });
   }
 }

@@ -5,45 +5,27 @@
  */
 package People;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import database.Database;
 
 /**
  *
  * @author niclasjohansen
  */
 public class People {
-  
-  
-  public void getTeamList() {
-    try {
-      Class.forName("org.postgresql.Driver");
-    } catch (java.lang.ClassNotFoundException e) {
-      System.out.println(e);
-    }
 
-    String url = "jdbc:postgresql://baasu.db.elephantsql.com:5432/ncpicdys";
-    String username = "ncpicdys";
-    String password = "pNWAGejzcJxCRoluHxYc2BvDoeGchZxG";
+  private Database db;
 
-    try {
-      Connection db = DriverManager.getConnection(url, username, password);
+  public People(Database db) {
+    this.db = db;
+  }
 
-      Statement st = db.createStatement();
-      ResultSet rs = st.executeQuery("select * from team_member \n" +
-            "JOIN people ON people.email = team_member.people_email");
-      while (rs.next()) {
-        System.out.print("Teamname: " + rs.getString(2) + " ");
-        System.out.print("Type: " + rs.getString(3) + " ");
-        System.out.println("Name: " + rs.getString(4) + " ");
-      }
-      rs.close();
-      st.close();
+  public void getPeopleList() {
+    db.query(" select * from team_member \n"
+            + "JOIN people ON people.id = team_member.people_id WHERE team_member.type = 'coach'", rs -> {
 
-    } catch (Exception e) {
-      System.out.println(e);
-    }
+              System.out.print("Teamname: " + rs.getString(2) + " ");
+              System.out.println("Coachname: " + rs.getString(4) + " ");
+
+            });
   }
 }

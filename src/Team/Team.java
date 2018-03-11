@@ -5,10 +5,7 @@
  */
 package Team;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import database.Database;
 
 /**
  *
@@ -16,32 +13,26 @@ import java.sql.Statement;
  */
 public class Team {
 
+  private final Database db;
+
+  public Team(Database db) {
+    this.db = db;
+  }
+
   public void getTeamList() {
-    try {
-      Class.forName("org.postgresql.Driver");
-    } catch (java.lang.ClassNotFoundException e) {
-      System.out.println(e);
-    }
 
-    String url = "jdbc:postgresql://baasu.db.elephantsql.com:5432/ncpicdys";
-    String username = "ncpicdys";
-    String password = "pNWAGejzcJxCRoluHxYc2BvDoeGchZxG";
+    db.query("select * from Teams", rs -> {
+      System.out.print("Teamname: " + rs.getString(1) + " ");
+      System.out.println("Country: " + rs.getString(2) + " ");
+    });
 
-    try {
-      Connection db = DriverManager.getConnection(url, username, password);
+  }
 
-      Statement st = db.createStatement();
-      ResultSet rs = st.executeQuery("select * from Teams");
-      while (rs.next()) {
-
-        System.out.print("Teamname: " + rs.getString(1) + " ");
-        System.out.println("Coach: " + rs.getString(2) + " ");
-      }
-      rs.close();
-      st.close();
-
-    } catch (Exception e) {
-      System.out.println(e);
-    }
+  public void getAmountOfTeamPlayer() {
+    db.query("SELECT team_name,COUNT(*) as members\n"
+            + "FROM team_member WHERE type='player' GROUP BY team_name ", rs -> {
+              System.out.print("Teamname: " + rs.getString(1) + " ");
+              System.out.println("Number of players: " + rs.getString(2) + " ");
+            });
   }
 }

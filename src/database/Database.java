@@ -52,7 +52,7 @@ public class Database {
 
     try {
       statement = this.connection.createStatement();
-      resultSet = statement.executeQuery("select * from test3");
+      resultSet = statement.executeQuery(query);
       while (resultSet.next()) {
         handler.execute(resultSet);
       }
