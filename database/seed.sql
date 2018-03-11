@@ -2,7 +2,7 @@
 
 
 
-NSERT INTO tournament_participant VALUES
+INSERT INTO tournament_participant VALUES
   ('team1', 'tournament1', false),
   ('team1', 'tournament2', false),
   ('team1', 'tournament3', false),
@@ -57,7 +57,16 @@ INSERT INTO people VALUES
   ('player22', 'player22@player.com', 'p22'),
   ('player23', 'player23@player.com', 'p23'),
   ('player24', 'player24@player.com', 'p24'),
-  ('player25', 'player25@player.com', 'p25')
+  ('player25', 'player25@player.com', 'p25'),
+  ('player26', 'player26@player.com', 'p26'),
+  ('player27', 'player27@player.com', 'p27'),
+  ('player28', 'player28@player.com', 'p28'),
+  ('player29', 'player29@player.com', 'p29'),
+  ('player30', 'player30@player.com', 'p30'),
+  ('player31', 'player31@player.com', 'p31'),
+  ('player32', 'player32@player.com', 'p32'),
+  ('player33', 'player33@player.com', 'p33')
+
 
 INSERT INTO people VALUES
   ('coach01', 'coach01@coach.com', 'c01'),
@@ -100,7 +109,15 @@ INSERT INTO team_member VALUES
   ('player22@player.com', 'team5', 'player'),
   ('player23@player.com', 'team5', 'player'),
   ('player24@player.com', 'team5', 'player'),
-  ('player25@player.com', 'team5', 'player')
+  ('player25@player.com', 'team5', 'player'),
+  ('player26@player.com', 'team5', 'player'),
+  ('player27@player.com', 'team5', 'player'),
+  ('player28@player.com', 'team5', 'player'),
+  ('player29@player.com', 'team2', 'player'),
+  ('player30@player.com', 'team2', 'player'),
+  ('player31@player.com', 'team4', 'player'),
+  ('player32@player.com', 'team1', 'player'),
+  ('player33@player.com', 'team2', 'player')
 
 
 
