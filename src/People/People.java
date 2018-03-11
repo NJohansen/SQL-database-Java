@@ -20,11 +20,13 @@ public class People {
   }
 
   public void getPeopleList() {
-    db.query(" select * from team_member \n"
-            + "JOIN people ON people.id = team_member.people_id WHERE team_member.type = 'coach'", rs -> {
+    db.query(" select teams.name AS team_name, people.name from team_member\n"
+            + "JOIN people ON people.id = team_member.people_id \n"
+            + "JOIN teams ON teams.id = team_member.team_id \n"
+            + "WHERE team_member.type = 'coach'", rs -> {
 
-              System.out.print("Teamname: " + rs.getString(2) + " ");
-              System.out.println("Coachname: " + rs.getString(4) + " ");
+              System.out.print("Teamname: " + rs.getString(1) + " ");
+              System.out.println("Coachname: " + rs.getString(2) + " ");
 
             });
   }

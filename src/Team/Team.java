@@ -29,8 +29,9 @@ public class Team {
   }
 
   public void getAmountOfTeamPlayer() {
-    db.query("SELECT team_name,COUNT(*) as members\n"
-            + "FROM team_member WHERE type='player' GROUP BY team_name ", rs -> {
+    db.query("SELECT teams.name ,COUNT(*) as members FROM team_member\n"
+            + "JOIN teams ON team_member.team_id = teams.id \n"
+            + "WHERE type='player' GROUP BY teams.name", rs -> {
               System.out.print("Teamname: " + rs.getString(1) + " ");
               System.out.println("Number of players: " + rs.getString(2) + " ");
             });
