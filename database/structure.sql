@@ -12,11 +12,11 @@ DROP TABLE tournament_participant;
 
 
 CREATE TABLE tournament_participant (
-  people_id INT,
+  team_id INT,
   tournaments_id INT,
   winner BOOLEAN,
 
-  PRIMARY KEY(people_id, tournaments_id)
+  PRIMARY KEY(team_id, tournaments_id)
 );
 
 
