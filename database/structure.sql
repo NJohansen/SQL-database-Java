@@ -1,50 +1,50 @@
 --Every query needed to construct database structure
 
-DROP TABLE people 
+DROP TABLE people ;
 
-DROP TABLE team_member 
+DROP TABLE team_member ;
 
-DROP TABLE teams
+DROP TABLE teams;
 
-DROP TABLE tournaments 
+DROP TABLE tournaments;
 
-DROP TABLE tournament_participant
+DROP TABLE tournament_participant;
 
 
-CREATE TABLE tournament_participant ( 
-  people_email VARCHAR(255), 
-  tournaments_name VARCHAR(255),
+CREATE TABLE tournament_participant (
+  people_id INT,
+  tournaments_id INT,
   winner BOOLEAN,
 
-  CONSTRAINT participant_primary PRIMARY KEY(people_email, tournaments_name)
-)
+  PRIMARY KEY(people_id, tournaments_id)
+);
 
 
 CREATE TABLE people(
+  id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  email VARCHAR(255) PRIMARY KEY, 
-  nickname VARCHAR(255) 
-)
+  email VARCHAR(255),
+  nickname VARCHAR(255)
+);
 
 
-CREATE TABLE team_member( 
-  people_email VARCHAR(255), 
-  team_name VARCHAR(255),
-  type VARCHAR(255),  
+CREATE TABLE team_member(
+  people_id INT,
+  team_id INT,
+  type VARCHAR(255),
 
-  CONSTRAINT player_primary PRIMARY KEY(people_email, team_name)
-)
+  PRIMARY KEY(people_id, team_id)
+);
 
-CREATE TABLE teams ( 
-  name VARCHAR(255) PRIMARY KEY,
+CREATE TABLE teams (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
   country CHAR(255)
-) 
+) ;
 
-CREATE TABLE tournaments ( 
-  name VARCHAR(255) PRIMARY KEY, 
-  prize INT, 
+CREATE TABLE tournaments (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  prize INT,
   date DATE
-) 
- 
-
-
+) ;

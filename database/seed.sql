@@ -3,36 +3,36 @@
 
 
 INSERT INTO tournament_participant VALUES
-  ('team1', 'tournament1', false),
-  ('team1', 'tournament2', false),
-  ('team1', 'tournament3', false),
-  ('team1', 'tournament4', false),
-  ('team1', 'tournament5', false),
-  ('team2', 'tournament1', true),
-  ('team2', 'tournament2', true),
-  ('team2', 'tournament3', false),
-  ('team2', 'tournament4', false),
-  ('team2', 'tournament5', false),
-  ('team3', 'tournament1', false),
-  ('team3', 'tournament2', false),
-  ('team3', 'tournament3', false),
-  ('team3', 'tournament4', false),
-  ('team3', 'tournament5', true),
-  ('team4', 'tournament1', false),
-  ('team4', 'tournament2', false),
-  ('team4', 'tournament3', false),
-  ('team4', 'tournament4', false),
-  ('team4', 'tournament5', false),
-  ('team5', 'tournament1', false),
-  ('team5', 'tournament2', false),
-  ('team5', 'tournament3', true),
-  ('team5', 'tournament4', false),
-  ('team5', 'tournament5', false)
+  (1, 1, false),
+  (1, 2, false),
+  (1, 3, false),
+  (1, 4, false),
+  (1, 5, false),
+  (2, 1, true),
+  (2, 2, true),
+  (2, 3, false),
+  (2, 4, false),
+  (2, 5, false),
+  (3, 1, false),
+  (3, 2, false),
+  (3, 3, false),
+  (3, 4, false),
+  (3, 5, true),
+  (4, 1, false),
+  (4, 2, false),
+  (4, 3, false),
+  (4, 4, false),
+  (4, 5, false),
+  (5, 1, false),
+  (5, 2, false),
+  (5, 3, true),
+  (5, 4, false),
+  (5, 5, false);
 
 
 
 
-INSERT INTO people VALUES
+INSERT INTO people (name, email, nickname) VALUES
   ('player01', 'player01@player.com', 'p01'),
   ('player02', 'player02@player.com', 'p02'),
   ('player03', 'player03@player.com', 'p03'),
@@ -65,76 +65,76 @@ INSERT INTO people VALUES
   ('player30', 'player30@player.com', 'p30'),
   ('player31', 'player31@player.com', 'p31'),
   ('player32', 'player32@player.com', 'p32'),
-  ('player33', 'player33@player.com', 'p33')
+  ('player33', 'player33@player.com', 'p33');
 
 
-INSERT INTO people VALUES
+INSERT INTO people (name, email, nickname) VALUES
   ('coach01', 'coach01@coach.com', 'c01'),
   ('coach02', 'coach02@coach.com', 'c02'),
   ('coach03', 'coach03@coach.com', 'c03'),
   ('coach04', 'coach04@coach.com', 'c04'),
-  ('coach05', 'coach05@coach.com', 'c05')
+  ('coach05', 'coach05@coach.com', 'c05');
 
 
 INSERT INTO team_member VALUES
-  ('coach01@coach.com', 'team1', 'coach'),
-  ('coach02@coach.com', 'team2', 'coach'),
-  ('coach03@coach.com', 'team3', 'coach'),
-  ('coach04@coach.com', 'team4', 'coach'),
-  ('coach05@coach.com', 'team5', 'coach')
+  (34, 1, 'coach'),
+  (35, 2, 'coach'),
+  (36, 3, 'coach'),
+  (37, 4, 'coach'),
+  (38, 5, 'coach');
 
 
 INSERT INTO team_member VALUES
-  ('player01@player.com', 'team1', 'player'),
-  ('player02@player.com', 'team1', 'player'),
-  ('player03@player.com', 'team1', 'player'),
-  ('player04@player.com', 'team1', 'player'),
-  ('player05@player.com', 'team1', 'player'),
-  ('player06@player.com', 'team2', 'player'),
-  ('player07@player.com', 'team2', 'player'),
-  ('player08@player.com', 'team2', 'player'),
-  ('player09@player.com', 'team2', 'player'),
-  ('player10@player.com', 'team2', 'player'),
-  ('player11@player.com', 'team3', 'player'),
-  ('player12@player.com', 'team3', 'player'),
-  ('player13@player.com', 'team3', 'player'),
-  ('player14@player.com', 'team3', 'player'),
-  ('player15@player.com', 'team3', 'player'),
-  ('player16@player.com', 'team4', 'player'),
-  ('player17@player.com', 'team4', 'player'),
-  ('player18@player.com', 'team4', 'player'),
-  ('player19@player.com', 'team4', 'player'),
-  ('player20@player.com', 'team4', 'player'),
-  ('player21@player.com', 'team5', 'player'),
-  ('player22@player.com', 'team5', 'player'),
-  ('player23@player.com', 'team5', 'player'),
-  ('player24@player.com', 'team5', 'player'),
-  ('player25@player.com', 'team5', 'player'),
-  ('player26@player.com', 'team5', 'player'),
-  ('player27@player.com', 'team5', 'player'),
-  ('player28@player.com', 'team5', 'player'),
-  ('player29@player.com', 'team2', 'player'),
-  ('player30@player.com', 'team2', 'player'),
-  ('player31@player.com', 'team4', 'player'),
-  ('player32@player.com', 'team1', 'player'),
-  ('player33@player.com', 'team2', 'player')
+  (1, 1, 'player'),
+  (2, 1, 'player'),
+  (3, 1, 'player'),
+  (4, 1, 'player'),
+  (5, 1, 'player'),
+  (6, 2, 'player'),
+  (7, 2, 'player'),
+  (8, 2, 'player'),
+  (9, 2, 'player'),
+  (10, 2, 'player'),
+  (11, 3, 'player'),
+  (12, 3,'player'),
+  (13, 3, 'player'),
+  (14, 3, 'player'),
+  (15, 3, 'player'),
+  (16, 4, 'player'),
+  (17, 4, 'player'),
+  (18, 4, 'player'),
+  (19, 4, 'player'),
+  (20, 4, 'player'),
+  (21, 5, 'player'),
+  (22, 5, 'player'),
+  (23, 5, 'player'),
+  (24, 5, 'player'),
+  (25, 5, 'player'),
+  (26, 5, 'player'),
+  (27, 5, 'player'),
+  (28, 5, 'player'),
+  (29, 2, 'player'),
+  (30, 2, 'player'),
+  (31, 4, 'player'),
+  (32, 1, 'player'),
+  (33, 2, 'player');
 
 
 
 
 
-INSERT INTO teams VALUES
+INSERT INTO teams (name, country) VALUES
   ('team1', 'Denmark'),
   ('team2', 'Sweden'),
   ('team3', 'Norway') ,
   ('team4', 'Uzbekistan'),
-  ('team5', 'Germany')
+  ('team5', 'Germany');
 
 
 
-INSERT INTO tournaments VALUES
+INSERT INTO tournaments (name, prize, date) VALUES
   ('tournament1', 500, now()),
   ('tournament2', 5000, '2016-12-03'),
   ('tournament3', 50000, '2017-06-05'),
   ('tournament4', 1000, '2015-11-18'),
-  ('tournament5', 10000, '2018-02-28')
+  ('tournament5', 10000, '2018-02-28');
