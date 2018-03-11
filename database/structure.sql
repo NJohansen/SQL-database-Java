@@ -1,7 +1,5 @@
 --Every query needed to construct database structure
 
-DROP TABLE participants
-
 DROP TABLE people 
 
 DROP TABLE team_member 
@@ -10,12 +8,13 @@ DROP TABLE teams
 
 DROP TABLE tournaments 
 
-DROP TABLE winner
+DROP TABLE tournament_participant
 
 
-CREATE TABLE participants ( 
+CREATE TABLE tournament_participant ( 
   people_email VARCHAR(255), 
   tournaments_name VARCHAR(255),
+  winner BOOLEAN,
 
   CONSTRAINT participant_primary PRIMARY KEY(people_email, tournaments_name)
 )
@@ -47,10 +46,5 @@ CREATE TABLE tournaments (
   date DATE
 ) 
  
-CREATE TABLE winner ( 
-  team_name VARCHAR(255), 
-  tournaments_name VARCHAR(255),
 
-  CONSTRAINT winner_primary PRIMARY KEY(team_name, tournaments_name)
-)
 
